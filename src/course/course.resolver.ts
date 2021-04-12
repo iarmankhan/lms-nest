@@ -1,4 +1,4 @@
-import { Query, Resolver } from '@nestjs/graphql';
+import { Mutation, Query, Resolver } from '@nestjs/graphql';
 import { CourseType } from './course.type';
 
 @Resolver(() => CourseType)
@@ -11,5 +11,10 @@ export class CourseResolver {
       startDate: new Date(),
       endDate: new Date(),
     };
+  }
+
+  @Mutation(() => CourseType)
+  createCourse() {
+    //
   }
 }
