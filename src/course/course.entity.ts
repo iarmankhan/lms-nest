@@ -1,24 +1,19 @@
-import {
-  Column,
-  Entity,
-  ObjectIdColumn,
-  PrimaryGeneratedColumn,
-} from 'typeorm';
+import { Column, Entity, ObjectIdColumn, PrimaryColumn } from 'typeorm';
 
 @Entity()
 export class Course {
   @ObjectIdColumn()
   _id: string;
 
-  @PrimaryGeneratedColumn('uuid')
+  @PrimaryColumn()
   id: string;
 
   @Column()
   name: string;
 
-  @Column(() => Date)
+  @Column()
   startDate: Date;
 
-  @Column(() => Date)
+  @Column()
   endDate: Date;
 }
