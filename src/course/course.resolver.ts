@@ -1,6 +1,7 @@
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
 import { CourseType } from './course.type';
 import { CourseService } from './course.service';
+import { CreateCourseInput } from './course.input';
 
 @Resolver(() => CourseType)
 export class CourseResolver {
@@ -18,10 +19,8 @@ export class CourseResolver {
 
   @Mutation(() => CourseType)
   createCourse(
-    @Args('name') name: string,
-    @Args('startDate') startDate: Date,
-    @Args('endDate') endDate: Date,
+    @Args('createCourseInput') createCourseInput: CreateCourseInput,
   ) {
-    return this.courseService.createCourse(name, startDate, endDate);
+    return this.courseService.createCourse(createCourseInput);
   }
 }
