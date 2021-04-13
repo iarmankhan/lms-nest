@@ -20,4 +20,8 @@ export class CourseService {
     });
     return this.courseRepository.save(course);
   }
+
+  async findAll(): Promise<Course[]> {
+    return this.courseRepository.find();
+  }
 }

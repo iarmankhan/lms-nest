@@ -6,14 +6,9 @@ import { CourseService } from './course.service';
 export class CourseResolver {
   constructor(private courseService: CourseService) {}
 
-  @Query(() => CourseType)
-  course() {
-    return {
-      id: '121212',
-      name: 'Test Name',
-      startDate: new Date(),
-      endDate: new Date(),
-    };
+  @Query(() => [CourseType])
+  courses() {
+    return this.courseService.findAll();
   }
 
   @Mutation(() => CourseType)
