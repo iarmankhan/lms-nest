@@ -8,7 +8,12 @@ export class CourseResolver {
 
   @Query(() => [CourseType])
   courses() {
-    return this.courseService.findAll();
+    return this.courseService.getCourses();
+  }
+
+  @Query(() => CourseType)
+  course(@Args('id') id: string) {
+    return this.courseService.getCourse(id);
   }
 
   @Mutation(() => CourseType)
